@@ -47,7 +47,7 @@ on post-fs-data
 # insmod kernel modules
     insmod /system/lib/modules/j4fs.ko
     insmod /system/lib/modules/Si4709_driver.ko
-    
+
 # mount param.lfs
     mount j4fs /dev/block/mmcblk0p4 /mnt/.lfs
 
@@ -72,7 +72,7 @@ on post-fs-data
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
-#DRM directory creation
+# DRM directory creation
     mkdir /system/etc/security/.drm 0775
     chown root root /system/etc/security/.drm
     chmod 0775 /system/etc/security/.drm
@@ -122,23 +122,23 @@ on post-fs-data
     chmod 0770 /dev/snd/timer
     chmod 0770 /dev/snd/hwC0D0
 
-    # create log system
+# create log system
     mkdir /data/log 0775 system log
     chown system log /data/log
 
     chmod 0775 /data/log
     chmod 0775 /data/anr
 
-#panorama directory creation
+#  panorama directory creation
     mkdir /data/pxtmpdir 0775
     chown system system /data/pxtmpdir
     chmod 0775 /data/pxtmpdir
 
-    # permission for HDMI audio path
+# permission for HDMI audio path
     chown media audio /sys/class/hdmi_audio/hdmi_audio/hdmi_audio_set_ext
 
 # Permissions for gpio_keys.
-    chown system radio /sys/class/sec/sec_key/wakeup_keys 
+    chown system radio /sys/class/sec/sec_key/wakeup_keys
     write /sys/class/sec/sec_key/wakeup_keys  102,116
 
 # Add permission for ATM. 2010.03.20
@@ -257,7 +257,7 @@ on post-fs-data
 # Permission for radio
     chown system radio /sys/devices/platform/s5p-ehci/ehci_power
     chown system radio /sys/devices/platform/s5p-ehci/ehci_runtime
-    chown system radio /sys/devices/virtual/misc/multipdp/waketime    
+    chown system radio /sys/devices/virtual/misc/multipdp/waketime
 
 # for datarouter
     chown system system /dev/dun
@@ -310,7 +310,7 @@ on boot
     chmod 0600 /dev/pn544
     chown nfc nfc /dev/pn544
 
-# Device Encryption by B2B Security Lab. 
+# Device Encryption by B2B Security Lab.
     setprop ro.crypto.keyfile.userdata /efs/metadata
 
 # fake some battery state
