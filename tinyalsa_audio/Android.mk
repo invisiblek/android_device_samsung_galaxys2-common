@@ -60,7 +60,7 @@ ifeq ($(strip $(BOARD_USE_YAMAHA_MC1N2_AUDIO)),true)
 		LOCAL_CFLAGS += -DYAMAHA_MC1N2_AUDIO_DEVICE=\"galaxys2\"
 	endif
 
-        ifeq ($(TARGET_DEVICE),d710)
+	ifeq ($(TARGET_DEVICE),d710)
 		LOCAL_CFLAGS += -DYAMAHA_MC1N2_AUDIO_DEVICE=\"galaxys2\"
 	endif
 

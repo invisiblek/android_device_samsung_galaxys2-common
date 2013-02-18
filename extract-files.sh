@@ -38,7 +38,7 @@ for FILE in `cat $COMMONPROPS | grep -v ^# | grep -v ^$`; do
 done
 
 (cat << EOF) | sed s/__COMMON__/$COMMON/g | sed s/__VENDOR__/$VENDOR/g > $COMMONMAKEFILE
-# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2012-2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -53,12 +53,9 @@ done
 # limitations under the License.
 
 PRODUCT_PACKAGES += \\
-    libTVOut \\
-    libUMP \\
     libfimc \\
-    libhdmi \\
-    libhdmiclient \\
-    libsecion
+    libsecion \\
+    libUMP
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/sbin/cbd:root/sbin/cbd
@@ -77,7 +74,7 @@ for FILE in `cat $COMMONPROPS | grep -v ^# | grep -v ^$`; do
 done
 
 (cat << EOF) | sed s/__COMMON__/$COMMON/g | sed s/__VENDOR__/$VENDOR/g > $COMMONBASE/Android.mk
-# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2012-2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -94,16 +91,6 @@ done
 LOCAL_PATH := \$(call my-dir)
 
 ifneq (\$(filter i777 i9100 n7000,\$(TARGET_DEVICE)),)
-
-include \$(CLEAR_VARS)
-LOCAL_MODULE := libTVOut
-LOCAL_MODULE_OWNER := samsung
-LOCAL_SRC_FILES := system/lib/libTVOut.so
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib
-include \$(BUILD_PREBUILT)
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := libUMP
@@ -135,32 +122,12 @@ LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib
 include \$(BUILD_PREBUILT)
 
-include \$(CLEAR_VARS)
-LOCAL_MODULE := libhdmi
-LOCAL_MODULE_OWNER := samsung
-LOCAL_SRC_FILES := system/lib/libhdmi.so
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib
-include \$(BUILD_PREBUILT)
-
-include \$(CLEAR_VARS)
-LOCAL_MODULE := libhdmiclient
-LOCAL_MODULE_OWNER := samsung
-LOCAL_SRC_FILES := system/lib/libhdmiclient.so
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_PATH := \$(TARGET_OUT)/lib
-include \$(BUILD_PREBUILT)
-
 endif
 
 EOF
 
 (cat << EOF) | sed s/__COMMON__/$COMMON/g | sed s/__VENDOR__/$VENDOR/g > ../../../$COMMONOUTDIR/common-vendor.mk
-# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2012-2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
