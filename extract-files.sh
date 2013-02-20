@@ -53,9 +53,9 @@ done
 # limitations under the License.
 
 PRODUCT_PACKAGES += \\
+    libUMP \\
     libfimc \\
-    libsecion \\
-    libUMP
+    libsecion
 
 PRODUCT_COPY_FILES += \\
     \$(LOCAL_PATH)/proprietary/sbin/cbd:root/sbin/cbd
